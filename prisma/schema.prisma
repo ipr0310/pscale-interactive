@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures=["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model Game{
+  id Int @id @default(autoincrement())
+  name String
+  developer String
+  genre String
+  price String
+}
+
+// Note:
+// When interacting with a model called BookSuggestion, in api it should be interacted the following way: prisma.bookSuggestion
