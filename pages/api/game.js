@@ -16,6 +16,7 @@ export default async function handler(req, res) {
     .json({ message: "Method not allowed", success: false });
 }
 
+// Add a game
 async function addGame(req, res) {
   const body = req.body;
 
@@ -36,6 +37,7 @@ async function addGame(req, res) {
   }
 }
 
+// Read all games
 async function readGames(req, res) {
   try {
     const games = await prisma.game.findMany();
