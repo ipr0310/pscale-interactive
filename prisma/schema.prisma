@@ -15,8 +15,18 @@ model Game{
   id Int @id @default(autoincrement())
   name String
   developer String
+  publisher Publisher @relation(fields: [publisherId], references: [id])
+  publisherId Int @default(0)
   genre String
   price String
+  platform String @default("PC")
+}
+
+model Publisher{
+  id Int @id @default(autoincrement())
+  name String?
+  email String @unique
+  games Game[]
 }
 
 // Note:
